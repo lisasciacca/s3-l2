@@ -44,6 +44,7 @@ const aggiungiTask = (testo, priorita) => {
 
     const bottoneElimina = document.createElement("button");
     bottoneElimina.textContent = "Elimina";
+    bottoneElimina.setAttribute("data-id", Date.now());
 
     nuovoLi.appendChild(spanTesto);
     nuovoLi.appendChild(spanPriorita);
