@@ -10,7 +10,7 @@
    2. Aggiungi bottone Elimina su ogni task - done
    6. evidenzia(indice) / togliEvidenza(indice) -- contorno della task, una a caso --
    7. data automatica nel task -- odierna -- done
-   8. contaPerPriorita()
+   8. contaPerPriorita() -done-
    -- non va toccato html --
 */
 
@@ -25,6 +25,7 @@ const aggiungiTask = (testo, priorita) => {
 
   if (testo !== "") {
     const nuovoLi = document.createElement("li");
+    const nuovoDiv = document.createElement("div");
 
     const spanPriorita = document.createElement("span");
     spanPriorita.className = "badge";
@@ -34,8 +35,10 @@ const aggiungiTask = (testo, priorita) => {
     const spanTesto = document.createElement("span");
     spanTesto.textContent = testo;
 
+    nuovoDiv.className = "divData";
 
     const spanData = document.createElement("span");
+    spanData.className = "data";
     spanData.textContent = todayDate;
 
 
@@ -45,8 +48,10 @@ const aggiungiTask = (testo, priorita) => {
 
     nuovoLi.appendChild(spanTesto);
     nuovoLi.appendChild(spanPriorita);
-    nuovoLi.appendChild(spanData);
-    nuovoLi.appendChild(bottoneElimina);
+    nuovoDiv.appendChild(spanData);
+    nuovoDiv.appendChild(bottoneElimina);
+    nuovoLi.appendChild(nuovoDiv);
+    
 
     lista.appendChild(nuovoLi);
   }
@@ -88,6 +93,31 @@ const contaPerPriorita = (prioritaCercata) => {
     return cont;
 };
 
-console.log(contaPerPriorita("alta"))
-console.log(contaPerPriorita("media"))
-console.log(contaPerPriorita("bassa"))
+
+const classePriorita = () => {
+    const elementiLi = document.querySelectorAll("#lista-task li");
+    let cont = 0;
+
+    for (let i = 0; i < elementiLi.length; i++) {
+        const badge = elementiLi[i].querySelector(".badge");
+        
+        if (badge) {
+            switch (badge.textContent.toLowerCase()) {
+                case "alta":
+                    elementiLi[i].className = "priorita-alta";
+                    cont++;
+                    break;
+                case "media":
+                    elementiLi[i].className = "priorita-media";
+                    cont++;
+                    break;
+                case "bassa":
+                    elementiLi[i].className = "priorita-bassa";
+                    cont++;
+                    break;
+            }
+        }
+    }
+};
+
+classePriorita()
