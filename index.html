@@ -3,25 +3,56 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Task Manager</title>
 	<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-	<h1 id="titolo">I miei task</h1>
+	<header>
+		<!-- Titolo dell'app + sottotitolo + button tema chiaro/scuro -->
+	</header>
+	<main>
 
-	<div class="aggiunta">
-		<input id="nuovo-task" placeholder="Cosa devi fare?" />
-		<button id="bottone-aggiungi">Aggiungi</button>
-	</div>
+		<h1 id="titolo">Le mie cose da fare</h1>
 
-	<ul id="lista-task">
+		<section class="form">
+			<div class="aggiunta">
+				<input id="nuovo-task" placeholder="Cosa devi fare?" />
+				<button id="bottone-aggiungi" type="submit">Aggiungi</button>
+			</div>
+		</section>
 
-	</ul>
+		<section class="controlli">
+			<button id="bottone-tutti" type="submit">Tutti</button>
+			<button id="bottone-attivi" type="submit">Attivi</button>
+			<button id="bottone-completati" type="submit">Completati</button>
+		</section>
 
-	<p>Totale: <span id="contatore">0</span></p>
+		<section class="statistiche">
+			<!-- Conteggi e/o barre orizzontali -->
+		</section>
 
-	<script src="script.js"></script>
+		<section class="lista">
+			<!-- Container che render() ricostruisce a ogni cambio di stato -->
+		</section>
+
+
+
+		<ul id="lista-task">
+
+		</ul>
+
+		<p>Totale: <span id="contatore">0</span></p>
+		<div id="notifica"></div>
+
+		<script src="script.js"></script>
+
+	</main>
+
+	<footer>
+		<!-- Autore, anno -->
+	</footer>
 </body>
 
 </html>

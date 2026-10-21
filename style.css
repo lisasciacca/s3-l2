@@ -20,6 +20,17 @@ h1 {
 	margin-bottom: 20px;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
 input {
 	flex: 1;
 	padding: 10px;
@@ -28,9 +39,11 @@ input {
 }
 
 button {
-	padding: 10px 20px;
+	padding: 15px 20px;
 	cursor: pointer;
 	font-family: inherit;
+	background-color: whitesmoke;
+	border-radius: 10px;
 }
 
 ul {
@@ -44,9 +57,6 @@ li {
 }
 
 /* Aggiungi qui le tue regole CSS per:
-   - .priorita-alta / .priorita-media / .priorita-bassa - done -
-   - .badge (l'etichetta della priorità dentro il task) -done-
-   - .data (la data di creazione) -done-
    - .evidenziato (sfondo giallo, bordo)
 */
 
@@ -82,9 +92,14 @@ li {
 	border: 3px solid #F6C948;
 }
 
-.divData {
+.divData { 
 	width: fit-content;
 	float: right;
+}
+
+.divTask { 
+	width: fit-content;
+	float: left;
 }
 
 li button {
@@ -92,4 +107,21 @@ li button {
 	height: fit-content;
 	padding: 4px;
 	margin-left: 5px;
+}
+
+/* Notifica nascosta di default */
+#notifica {
+  display: none;
+}
+
+/* task conclusa*/
+
+.done {
+	text-decoration: line-through;
+	background-color: white;
+}
+
+.focusOn {
+	background-color: black;
+	color: white;
 }
