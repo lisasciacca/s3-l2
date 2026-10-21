@@ -125,3 +125,7 @@ li button {
 	background-color: black;
 	color: white;
 }
+
+.hide {
+	display: none;
+}
