@@ -47,10 +47,9 @@ const bottoneCompletati = document.querySelector("#bottone-completati");
 const valoreTask = document.querySelector("#nuovo-task");
 const lista = document.querySelector("#lista-task");
 const contatore = document.querySelector("#contatore");
+const selettoreProp = document.querySelector("#selettorePriorita");
 
-const aggiornaContatore = () => {
-  contatore.textContent = myTask.length;
-};
+
 
 const aggiungiTask = () => {
   const testo = valoreTask.value.trim();
@@ -59,7 +58,7 @@ const aggiungiTask = () => {
     const nuovoTaskObj = {
       check: false,
       titoloTask: testo,
-      priorita: "media",
+      priorita: selettoreProp.value,
       data: new Date().toLocaleDateString("it-IT", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit" })
     };
 
@@ -128,6 +127,14 @@ const aggiungiTask = () => {
 
     lista.appendChild(nuovoLi);
   });
+
+  aggiornaContatore();
+  
+};
+
+const aggiornaContatore = () => {
+  const taskVisibili = document.querySelectorAll("#lista-task li:not(.hide)");
+  contatore.textContent = taskVisibili.length;
 };
 
 lista.addEventListener('click', (e) => {
@@ -152,6 +159,7 @@ if (bottoneTutti) {
     elementiLi.forEach(li => {
       li.classList.remove("hide");
     });
+     aggiornaContatore();
   });
 }
 
@@ -166,6 +174,7 @@ if (bottoneAttivi) {
         li.classList.remove("hide");
       }
     });
+     aggiornaContatore();
   });
 }
 
@@ -180,6 +189,7 @@ if (bottoneCompletati) {
         li.classList.add("hide");
       }
     });
+     aggiornaContatore();
   });
 }
 
